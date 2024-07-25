@@ -32,7 +32,7 @@ The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as a list (given by 
 
 We show the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
-![BVP_comparison](https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88)
+<img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 
 ## References
 <a id="1">[1]</a> 

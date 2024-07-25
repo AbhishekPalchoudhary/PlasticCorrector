@@ -1,7 +1,49 @@
-As an example, the following boundary value problem is considered:
-![BVP](https://github.com/user-attachments/assets/478e1902-888f-4d95-b33a-5bccd9bb626d)
+We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
-The von Mises stress coming from an elastic computation (denoted by $\#$), scaled by a dimensionless proportional loading function $f(t)$.
-Note: A prescribed displacement $\bar{\underbar{u}}_{a}^{\#}$ is applied such that $\bar{\sigma}_{\textrm{VM}}^{\#} = 100$ MPa in the gauge section away from pores.
-$f(t)$ oscillates between +0.8 and -0.8, which leads to $f(t)\bar{\sigma}_{\textrm{VM}}^{\#} = 80$ MPa in the gauge section.
-![vonMises_peakloading_plasticcorrector3](https://github.com/user-attachments/assets/3ec8dfdf-30d0-4838-84a0-442a31ad4627)
+A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
+
+The material parameters (identified by other authors [[1]](#1)) correspond to an AlSi7Mg0.3 alloy:
+
+Elasticity parameters:
+
+$`E =`$ 75500 MPa, 
+$`\sigma_y =`$ 170 MPa. 
+
+Isotropic and kinematic hardening parameters:
+
+$`b =`$ 19, 
+$`Q =`$ 20 MPa, 
+$`C =`$ 127499 MPa, 
+$`D =`$ 1334. 
+
+For the elastic FEA computation, a prescribed displacement $`\bar{\underline{u}}_{a}^{\#} = [u_x,0,0]`$ is applied in opposite directions of the specimen.
+
+The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores.
+
+$`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ = 80 MPa in the gauge section.
+
+![BVP](https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b =250x250)
+
+
+Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, which represents a stress concentration factor of $`\sim`$4.4.
+
+![BVP_input](https://github.com/user-attachments/assets/ddecd1aa-3d68-4926-a722-5ff0db5dc2cc)
+
+The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as a list (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
+
+We show the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+
+![BVP_comparison](https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88)
+
+## References
+<a id="1">[1]</a> 
+Le, V.-D., Saintier, N., Morel, F., Bellett, D., Osmond, P.: Investigation of the
+effect of porosity on the high cycle fatigue behaviour of cast al-si alloy by x-
+ray micro-tomography. International Journal of Fatigue 106, 24–37 (2018) https:
+//doi.org/10.1016/j.ijfatigue.2017.09.012
+
+<a id="2">[2]</a>
+Palchoudhary, Abhishek, Simone Peter, Vincent Maurel, Cristian Ovalle, and Pierre Kerfriden. 
+"A plastic correction algorithm for full-field elasto-plastic finite element simulations: 
+critical assessment of predictive capabilities and improvement by machine learning." 
+arXiv preprint arXiv:2402.06313 (2024).

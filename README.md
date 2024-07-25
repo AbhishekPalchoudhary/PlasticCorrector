@@ -24,7 +24,7 @@ $`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to $`f(t)\b
 
 ![BVP](https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b)
 
-<img src="https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b" width="1056" height="556">
+<img src="https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b" width="1056px" height="556px">
 
 Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, which represents a stress concentration factor of $`\sim`$4.4.
 

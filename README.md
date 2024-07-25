@@ -1,7 +1,7 @@
 This algorithm pertains to the numerical implementation of a new local plastic correction algorithm that is aimed to
 accelerate elasto-plastic finite element (FE) simulations for structural problems
-exhibiting localised plasticity (around e.g. notches, geometrical defects). The pro-
-posed method belongs to the category of generalised multi-axial Neuber-type
+exhibiting localised plasticity (around e.g. notches, geometrical defects). 
+The proposed method belongs to the category of generalised multi-axial Neuber-type
 methods, which process the results of an elastic prediction point-wise in order to
 calculate an approximation of the elasto-plastic solution. The publication associated to this algorithm can be found here [[2]](#2).
 

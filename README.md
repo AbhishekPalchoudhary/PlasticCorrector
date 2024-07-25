@@ -16,7 +16,7 @@ $`Q =`$ 20 MPa,
 $`C =`$ 127499 MPa, 
 $`D =`$ 1334. 
 
-For the elastic FEA computation, a prescribed displacement $`\bar{\underline{u}}_{a}^{\#} = [u_x,0,0]`$ is applied in opposite directions of the specimen.
+For the elastic FEA computation, a prescribed displacement $`\bar{\underline{u}}_{a}^{\#} = [u_x,0,0]`$ is applied on both the ends of the specimen (shown in red) in opposite x-directions.
 
 The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores.
 
@@ -28,9 +28,9 @@ Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, whic
 
 <img src="https://github.com/user-attachments/assets/ddecd1aa-3d68-4926-a722-5ff0db5dc2cc" width="423.5px" height="339.5px">
 
-The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as a list (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
+The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
 
-We show the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
 <img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 

@@ -22,11 +22,11 @@ The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textr
 
 $`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ = 80 MPa in the gauge section.
 
-<img src="https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b" width="528px" height="278px">
+<img src="https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b" width="792px" height="417px">
 
 Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, which represents a stress concentration factor of $`\sim`$4.4.
 
-![BVP_input](https://github.com/user-attachments/assets/ddecd1aa-3d68-4926-a722-5ff0db5dc2cc)
+<img src="https://github.com/user-attachments/assets/ddecd1aa-3d68-4926-a722-5ff0db5dc2cc" width="423.5px" height="339.5px">
 
 The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as a list (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
 

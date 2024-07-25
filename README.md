@@ -3,13 +3,13 @@ accelerate elasto-plastic finite element (FE) simulations for structural problem
 exhibiting localised plasticity (around e.g. notches, geometrical defects). 
 The proposed method belongs to the category of generalised multi-axial Neuber-type
 methods, which process the results of an elastic prediction point-wise in order to
-calculate an approximation of the elasto-plastic solution. The publication associated to this algorithm can be found here [[2]](#2).
+calculate an approximation of the elasto-plastic solution. The publication associated to this algorithm can be found here [[1]](#1).
 
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
 A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
 
-The material parameters (identified by other authors [[1]](#1)) correspond to an AlSi7Mg0.3 alloy:
+The material parameters (identified by other authors [[2]](#2)) correspond to an AlSi7Mg0.3 alloy:
 
 Elasticity parameters:
 
@@ -43,13 +43,13 @@ We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>
 
 ## References
 <a id="1">[1]</a> 
-Le, V.-D., Saintier, N., Morel, F., Bellett, D., Osmond, P.: Investigation of the
-effect of porosity on the high cycle fatigue behaviour of cast al-si alloy by x-
-ray micro-tomography. International Journal of Fatigue 106, 24–37 (2018) https:
-//doi.org/10.1016/j.ijfatigue.2017.09.012
-
-<a id="2">[2]</a>
 Palchoudhary, Abhishek, Simone Peter, Vincent Maurel, Cristian Ovalle, and Pierre Kerfriden. 
 "A plastic correction algorithm for full-field elasto-plastic finite element simulations: 
 critical assessment of predictive capabilities and improvement by machine learning." 
 arXiv preprint arXiv:2402.06313 (2024).
+
+<a id="2">[2]</a>
+Le, V.-D., Saintier, N., Morel, F., Bellett, D., Osmond, P.: Investigation of the
+effect of porosity on the high cycle fatigue behaviour of cast al-si alloy by x-
+ray micro-tomography. International Journal of Fatigue 106, 24–37 (2018) https:
+//doi.org/10.1016/j.ijfatigue.2017.09.012

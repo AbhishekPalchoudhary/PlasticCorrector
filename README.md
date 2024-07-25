@@ -1,3 +1,10 @@
+This algorithm pertains to the numerical implementation of a new local plastic correction algorithm that is aimed to
+accelerate elasto-plastic finite element (FE) simulations for structural problems
+exhibiting localised plasticity (around e.g. notches, geometrical defects). The pro-
+posed method belongs to the category of generalised multi-axial Neuber-type
+methods, which process the results of an elastic prediction point-wise in order to
+calculate an approximation of the elasto-plastic solution. The publication associated to this algorithm can be found here [[2]](#2).
+
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
 A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
@@ -30,7 +37,7 @@ Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, whic
 
 The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
 
-We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
 <img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 

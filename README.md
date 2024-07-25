@@ -1,5 +1,6 @@
 TO ADD: Elastic FEA at f=1 (sig_vm_e = 170 MPa in gauge section away from pores)
 TO ADD: Change f(t) to 0.47
+
 This algorithm pertains to the numerical implementation of a new local plastic correction algorithm that is aimed to
 accelerate elasto-plastic finite element (FE) simulations for structural problems
 exhibiting localised plasticity (around e.g. notches, geometrical defects). 

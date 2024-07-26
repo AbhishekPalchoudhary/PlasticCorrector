@@ -23,6 +23,9 @@ In **run_model_fullmesh.py**:
    Steps 2-4 remain the same.
 5. **set_values_to_mesh.py** may optionally be used to set the plastic corrected values to the mesh. Fenics [[2]](#2) is required for this step. 
 
+
+### Example of usage with a mesh of a specimen containing pores
+
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
 A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
@@ -43,23 +46,27 @@ $`D =`$ 1334.
 
 For the elastic FEA computation, a prescribed displacement $`\bar{\underline{u}}_{a}^{\#} = [u_x,0,0]`$ is applied on both the ends of the specimen (shown in red) in opposite x-directions.
 
-The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores. This elastic FEA computation corresponds to $`f(t)`$ = 1.
+The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores. This elastic FEA computation corresponds to $`f(t)`$ = 1. The results can be examined in the paraview file **sigvme_f1.vtu**. These results are also written into the text file **sigvme_f1.txt** for easy input to the plastic correction algorithm.
 
-$`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ = 80 MPa in the gauge section.
+The load function $`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to the chosen scaled loading $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ = 80 MPa in the gauge section.
 
 <img src="https://github.com/user-attachments/assets/6817691d-6c80-4f03-90f0-4675df38fa8b" width="792px" height="417px">
 
-Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, which represents a stress concentration factor of $`\sim`$4.4.
+Near the pores, the chosen scaled loading $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, which represents a stress concentration factor of $`\sim`$4.4. This is shown in the following image:
 
 <img src="https://github.com/user-attachments/assets/ddecd1aa-3d68-4926-a722-5ff0db5dc2cc" width="423.5px" height="339.5px">
 
-The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
+The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model_fullmesh.py**) to the plastic corrector algorithm. The cumulative plastic strain $`p`$ is obtained as output, for all the time-steps defined in the load function $`f(t)`$.
 
-We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+
+###Accuracy of the plastic correction algorithm
+
+We show here the accuracy of the plastic corrector for $\Delta p = p^{\textrm{max}}_{\textrm{cycle}} - p^{\textrm{min}}_{\textrm{cycle}}$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
 <img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 
 ## References
+
 <a id="1">[1]</a> 
 Palchoudhary, Abhishek, Simone Peter, Vincent Maurel, Cristian Ovalle, and Pierre Kerfriden. 
 A plastic correction algorithm for full-field elasto-plastic finite element simulations: 

@@ -21,7 +21,7 @@ In **run_model_fullmesh.py**:
 
 1. The von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ (at $`f(t)`$ = 1) is set in the array _sig_vm_e_ via a text file.
    Steps 2-4 remain the same.
-5. **set_values_to_mesh.py** may optionally be used to set the plastic corrected values to the mesh. Fenics [[3]](#3) is required for this step. 
+5. **set_values_to_mesh.py** may optionally be used to set the plastic corrected values to the mesh. Fenics [[2]](#2) is required for this step. 
 
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 

@@ -24,7 +24,7 @@ In **run_model_fullmesh.py**:
 5. **set_values_to_mesh.py** may optionally be used to set the plastic corrected values to the mesh. Fenics [[2]](#2) is required for this step. 
 
 
-### Example of usage with a mesh of a specimen containing pores
+## Example of usage with a mesh of a specimen containing pores
 
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
@@ -59,7 +59,7 @@ Near the pores, the chosen scaled loading $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`
 The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model_fullmesh.py**) to the plastic corrector algorithm. The cumulative plastic strain $`p`$ is obtained as output, for all the time-steps defined in the load function $`f(t)`$.
 
 
-###Accuracy of the plastic correction algorithm
+## Accuracy of the plastic correction algorithm
 
 We show here the accuracy of the plastic corrector for $\Delta p = p^{\textrm{max}}_{\textrm{cycle}} - p^{\textrm{min}}_{\textrm{cycle}}$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 

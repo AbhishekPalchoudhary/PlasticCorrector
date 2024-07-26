@@ -11,7 +11,7 @@ In **run_model.py**:
 
 1. Add the von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ (at $`f(t)`$ = 1) in the array _sig_vm_e_. This should correspond to $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y`$, where $`\sigma_y`$ is the yield stress of the material.
 2. Set the form of the proportional load function $`f(t)`$ (_amplitude_, _n_cycles_, _num_time_steps_ and _end_time_). For monotonic loading, n_cycles can be set to 1/4.
-3. Set the hardening parameters. The elasticity parameters should match that of the elastic FEA computation.
+3. Set the hardening parameters. The elasticity parameters should match that of the elastic computation used to get $`\bar{\sigma}_{\textrm{VM}}^{\#}`$.
 4. The results for the quantity of interest (QoI) will be written for the entire time history. The cumulative plastic strain (p) is written by defaut, the user is free to change the QoI as per need.
 
 Usage (correction of a full elastic FEA computation)

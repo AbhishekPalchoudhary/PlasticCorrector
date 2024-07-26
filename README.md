@@ -9,7 +9,7 @@ Usage (correction of few elastic points)
 
 In **run_model.py**:
 
-1. Add the von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ (at $`f(t)`$ = 1) in the array _sig_vm_e_. This should correspond to $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y`$.
+1. Add the von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ (at $`f(t)`$ = 1) in the array _sig_vm_e_. This should correspond to $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y`$, where $`\sigma_y`$ is the yield stress of the material.
 2. Set the form of the load function $`f(t)`$ (amplitude, number of cycles, number of time steps and end time). For monotonic loading, n_cycles can be set to 1/4.
 3. Set the hardening parameters. The elasticity parameters should match that of the elastic FEA computation.
 4. The results for the quantity of interest (QoI) will be written for the entire time history. The cumulative plastic strain (p) is written by defaut, the user is free to change the QoI as per need.

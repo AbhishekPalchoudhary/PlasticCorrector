@@ -1,6 +1,3 @@
-TO ADD: Elastic FEA at f=1 (sig_vm_e = 170 MPa in gauge section away from pores)
-TO ADD: Change f(t) to 0.47
-
 This algorithm pertains to the numerical implementation of a new local plastic correction algorithm that is aimed to
 accelerate elasto-plastic finite element (FE) simulations for structural problems
 exhibiting localised plasticity (around e.g. notches, geometrical defects). 
@@ -28,7 +25,7 @@ $`D =`$ 1334.
 
 For the elastic FEA computation, a prescribed displacement $`\bar{\underline{u}}_{a}^{\#} = [u_x,0,0]`$ is applied on both the ends of the specimen (shown in red) in opposite x-directions.
 
-The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores.
+The von Mises stress coming from this elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$ 170 MPa in the gauge section away from pores. This elastic FEA computation corresponds to $`f(t)`$ = 1.
 
 $`f(t)`$ is chosen to oscillate between +0.47 and -0.47, which leads to $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ = 80 MPa in the gauge section.
 

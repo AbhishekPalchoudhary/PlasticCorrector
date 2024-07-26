@@ -61,7 +61,7 @@ The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given b
 
 ## Accuracy of the plastic correction algorithm
 
-We show here the accuracy of the plastic corrector for $\Delta p = p^{\textrm{max}}_{\textrm{cycle}} - p^{\textrm{min}}_{\textrm{cycle}}$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+We show here the accuracy of the plastic corrector for $`\Delta p = p^{\textrm{max}}_{\textrm{cycle}} - p^{\textrm{min}}_{\textrm{cycle}}`$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
 <img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 

@@ -28,7 +28,7 @@ D = 400.             #Kinematic parameter
 
 ########################################################################################
 #Provide von Mises from elastic computation for sig_vm_e = sig_y here
-sig_vm_e = 0.8*np.array([489.249, 698.774, 194.126])
+sig_vm_e = np.array([489.249, 698.774, 194.126])
 
 # Get loading function
 time, load, peaksvalleys = loading_function(n_cycles, amplitude, num_time_steps, end_time)

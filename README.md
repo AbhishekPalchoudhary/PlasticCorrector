@@ -1,3 +1,5 @@
+## A plastic correction algorithm for full-field elasto-plastic finite element simulations
+
 This algorithm pertains to the numerical implementation of a new local plastic correction algorithm that is aimed to
 accelerate elasto-plastic finite element (FE) simulations for structural problems
 exhibiting localised plasticity (around e.g. notches, geometrical defects) due to proportional global loading sequences. 

@@ -12,7 +12,7 @@ We demonstrate the usage of the plastic corrector with the following example bou
 
 A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
 
-The material parameters (identified by other authors [[2]](#2)) correspond to an AlSi7Mg0.3 alloy:
+The material parameters (identified by other authors [[2]](#2)) correspond to an aluminium (AlSi7Mg0.3) alloy:
 
 Elasticity parameters:
 

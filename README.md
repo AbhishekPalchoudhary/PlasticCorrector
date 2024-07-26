@@ -5,11 +5,29 @@ The proposed method belongs to the category of generalised multi-axial Neuber-ty
 methods, which process the results of an elastic prediction point-wise in order to
 calculate an approximation of the elasto-plastic solution. The publication associated to this algorithm can be found here [[1]](#1).
 
+Usage (correction of few elastic points)
+
+In **run_model.py**:
+
+1. Add the von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}$ (at $`f(t)`$ = 1) in the array _sig_vm_e_. This should correspond to $`\bar{\sigma}_{\textrm{VM}}^{\#} = \sigma_y =`$.
+2. Set the form of the load function $`f(t)`$ (amplitude, number of cycles, number of time steps and end time). For monotonic loading, n_cycles can be set to 1/4.
+3. Set the hardening parameters. The elasticity parameters should match that of the elastic FEA computation.
+4. The results for the quantity of interest (QoI) will be written for the entire time history. The cumulative plastic strain (p) is written by defaut, the user is free to change the QoI as per need.
+
+Usage (correction of a full elastic FEA computation)
+
+In **run_model_fullmesh.py**:
+
+
+1. The von Mises stress values from an elastic computation $`\bar{\sigma}_{\textrm{VM}}^{\#}$ (at $`f(t)`$ = 1) is set in the array _sig_vm_e_ via a text file.
+   Steps 2-4 remain the same.
+5. **set_values_to_mesh.py** may optionally be used to set the plastic corrected values to the mesh. Fenics [[3]](#3) is required for this step. 
+
 We demonstrate the usage of the plastic corrector with the following example boundary value problem (BVP).
 
 A specimen with a sub-volume of pores explicitly meshed is considered. These pores arise due to a casting manufacturing process, and information on their geometry was obtained from computed tomography.
 
-The material parameters (identified by other authors [[2]](#2)) correspond to an aluminium (AlSi7Mg0.3) alloy:
+The material parameters (identified by other authors [[3]](#3)) correspond to an aluminium (AlSi7Mg0.3) alloy:
 
 Elasticity parameters:
 
@@ -37,19 +55,24 @@ Near the pores, $`f(t)\bar{\sigma}_{\textrm{VM}}^{\#}`$ goes up to 350 MPa, whic
 
 The full-field $`\bar{\sigma}_{\textrm{VM}}^{\#}`$ is input as an array (given by the variable _sig_vm_e_ in **run_model.py**) to the plastic corrector algorithm. Elasto-plastic variables like the cumulative plastic strain $`p`$ is obtained as output.
 
-We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[2]](#2) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
+We show here the accuracy of the plastic corrector for $\Delta p$ in the 20<sup>th</sup> cycle, by comparing it to a full elasto-plastic FEA computation, which serves as the reference. Users are invited to refer to the full publication [[1]](#1) for more details on the plastic correction algorithm and error analysis on a wider range of BVPs.
 
 <img src="https://github.com/user-attachments/assets/1fba19a5-4a06-4d8a-9d92-8fa05f8a5d88" width="752.6px" height="794.6px">
 
 ## References
 <a id="1">[1]</a> 
 Palchoudhary, Abhishek, Simone Peter, Vincent Maurel, Cristian Ovalle, and Pierre Kerfriden. 
-"A plastic correction algorithm for full-field elasto-plastic finite element simulations: 
-critical assessment of predictive capabilities and improvement by machine learning." 
+A plastic correction algorithm for full-field elasto-plastic finite element simulations: 
+critical assessment of predictive capabilities and improvement by machine learning. 
 arXiv preprint arXiv:2402.06313 (2024).
 
-<a id="2">[2]</a>
-Le, V.-D., Saintier, N., Morel, F., Bellett, D., Osmond, P.: Investigation of the
+<a id="2">[2]</a> 
+M. S. Alnaes, J. Blechta, J. Hake, A. Johansson, B. Kehlet, A. Logg, C. Richardson, J. Ring, M. E. Rognes and G. N. Wells. 
+The FEniCS Project Version 1.5, Archive of Numerical Software 3 (2015). 
+[doi.org/10.11588/ans.2015.100.20553]
+
+<a id="3">[3]</a>
+Le, V.-D., Saintier, N., Morel, F., Bellett, D., Osmond, P. Investigation of the
 effect of porosity on the high cycle fatigue behaviour of cast al-si alloy by x-
-ray micro-tomography. International Journal of Fatigue 106, 24–37 (2018) https:
-//doi.org/10.1016/j.ijfatigue.2017.09.012
+ray micro-tomography. International Journal of Fatigue 106, 24–37 (2018) 
+https://doi.org/10.1016/j.ijfatigue.2017.09.012
